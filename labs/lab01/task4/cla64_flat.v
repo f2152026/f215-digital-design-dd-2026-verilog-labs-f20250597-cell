@@ -15,6 +15,7 @@ module cla64_flat(
   wire [63:0] p, g;
   wire [64:1] c;   // c[1]..c[64] are the 64 carries; think of cin as c[0]
 
+
   // ---------------------------------------------------------------------
   // Step 1: generate/propagate signals -- WORKED EXAMPLE
   //
@@ -2274,5 +2275,6 @@ assign #(2) c[64] = g[63]
   // Step 3: sum bits
   // ---------------------------------------------------------------------
   assign #(2) sum = p ^ {c[63:1], cin};
+  assign #(2) cout = c[64];
 
 endmodule
